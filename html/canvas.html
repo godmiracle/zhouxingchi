@@ -12,7 +12,7 @@
         #canvas{
             height: 100vh;
             width: 100vw;
-            border: 1px solid red;
+            /*border: 1px solid red;*/
             display: block;
         }
     </style>
@@ -36,6 +36,11 @@
     let painting = false
     let last
 
+    // if (isTouchDevice){
+    //     alert('触摸画画')
+    // }else{
+    //     alert('鼠标画画')
+    // }
     let isTouchDevice = 'ontouchstart' in document.documentElement;
     if (isTouchDevice) {
         canvas.ontouchstart = (e) =>{
@@ -55,7 +60,7 @@
             // ctx.fill();
     }else{
         canvas.onmousedown = (e) =>{
-            // painting = true
+            painting = true
             last = [e.clientX,e.clientY]
             console.log(last)
         }
